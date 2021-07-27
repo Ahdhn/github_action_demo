@@ -1,5 +1,5 @@
 name: Ubuntu
-on: [push]
+on: [push, pull_request]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -21,6 +21,6 @@ jobs:
       #- name: List files in the repository
       - run: ls ${{ github.workspace }}      
       #- name: Compile the code 
-      - run: mkdir -p ${{github.workspace}}/build & cd ${{github.workspace}}/build & cmake ../ & make -j 99
+      - run: mkdir ${{github.workspace}}/build & cd ${{github.workspace}}/build & cmake ../ & make -j 99
       - run: echo "This job's status is ${{ job.status }}."  
   
