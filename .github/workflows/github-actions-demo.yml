@@ -20,7 +20,7 @@ jobs:
       - run: echo "The workflow is now ready to test your code on the runner."
       - name: List files in the repository
       - run: ls ${{ github.workspace }}
-      - name: Compile the code 
-      - run: mkdir -p ${{github.workspace}}/build & cd ${{github.workspace}}/build & cmake ../ & make -j 99
+      #- name: Compile the code 
+      #- run: mkdir -p ${{github.workspace}}/build & cd ${{github.workspace}}/build & cmake ../ & make -j 99
       - run: echo "This job's status is ${{ job.status }}."  
   
