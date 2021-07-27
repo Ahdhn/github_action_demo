@@ -47,8 +47,7 @@ if(NOT DEFINED CUDA_ARCHS)
 		set(CUDA_ARCHS ${fprintf_output} CACHE STRING "CUDA Arch")			
 	else()
 		message(STATUS "GPU architectures auto-detect failed. Will build for all possible architectures.")      
-		set(CUDA_ARCHS -gencode arch=compute_30,code=sm_30
-		               -gencode arch=compute_35,code=sm_35
+		set(CUDA_ARCHS -gencode arch=compute_35,code=sm_35
 		               -gencode arch=compute_37,code=sm_37
 		               -gencode arch=compute_50,code=sm_50
 		               -gencode arch=compute_52,code=sm_52
