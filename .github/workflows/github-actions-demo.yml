@@ -22,10 +22,10 @@ jobs:
         run: ls ${{ github.workspace }}      
       - name: Compile the code 
         run: mkdir ${{github.workspace}}/build      
-      - run: ls ${{ github.workspace }}            
-      #- working-directory: ${{github.workspace}}/build
-      - run: pwd
-      - run: cmake ../       
-      - run: make -j 99
+      - run: ls ${{ github.workspace }}           
+      - name: Build everything else
+        working-directory: ${{github.workspace}}/build
+        run: cmake --build ../ --target all --verbose -j `nproc`            
+      #- run: make -j 99
       - run: echo "This job's status is ${{ job.status }}."  
   
