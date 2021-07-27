@@ -23,7 +23,7 @@ jobs:
         name: Compile the code 
       - run: mkdir ${{github.workspace}}/build      
       - run: ls ${{ github.workspace }}            
-      - working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}/build
       - run: pwd
       - run: cmake ../       
       - run: make -j 99
