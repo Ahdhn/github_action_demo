@@ -15,6 +15,8 @@ if (CMAKE_BUILD_TYPE STREQUAL "")
 endif ()
 
 include(FetchContent)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
 # GoogleTest
 FetchContent_Declare(googletest
     GIT_REPOSITORY https://github.com/google/googletest.git
@@ -22,7 +24,7 @@ FetchContent_Declare(googletest
 )
 FetchContent_MakeAvailable(googletest)
 include(GoogleTest)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+
 
 # Direct all output to /bin directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin)
@@ -86,3 +88,6 @@ find_package(OpenMP)
 if(OpenMP_CXX_FOUND)
     target_link_libraries(${PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)
 endif()
+
+enable_testing()
+gtest_discover_tests(${PROJECT_NAME})
