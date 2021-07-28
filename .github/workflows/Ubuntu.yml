@@ -20,5 +20,6 @@ jobs:
       - name: Run make
         working-directory: ${{github.workspace}}/build
         run: make -j
-      - run: echo "This job's status is ${{ job.status }}."  
+      - run: echo "This job's status is ${{ job.status }}."      
+
   
