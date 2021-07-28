@@ -1,4 +1,7 @@
-  Windows:
+name: Windows
+on: [push, pull_request]
+jobs:
+  Windows Run:
     runs-on: ubuntu-latest
     steps:
       - uses: Jimver/cuda-toolkit@v0.2.4
@@ -17,4 +20,4 @@
       - name: Run make
         working-directory: ${{github.workspace}}/build
         run: make -j
-      - run: echo "This job's status is ${{ job.status }}."  
+      - run: echo "This job's status is ${{ job.status }}."
